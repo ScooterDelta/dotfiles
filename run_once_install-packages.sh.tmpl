@@ -1,4 +1,5 @@
 {{ if eq .chezmoi.os "linux" -}}
+
 #!/bin/sh
 {{  if eq .chezmoi.osRelease.id "ubuntu" }}
 sudo apt install zsh
@@ -9,4 +10,7 @@ sudo apt install zsh
 {{  if eq .chezmoi.osRelease.id "archlinux" }}
 sudo pacman -S zsh zsh-completions
 {{  end -}}
+
+sudo chsh -s /usr/bin/zsh
+
 {{ end -}}
