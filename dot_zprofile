@@ -1,10 +1,8 @@
-# Dotnet Environment
-export ASPNETCORE_ENVIRONMENT=Development
+# Path
+PATH=$PATH:$HOME/.bin:$HOME/.local/bin
 
 if [ -d $HOME/.dotnet ]; then
    export DOTNET_ROOT=$HOME/.dotnet
+   export ASPNETCORE_ENVIRONMENT=Development
    PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 fi
-
-# Path
-PATH=$PATH:$HOME/.bin:$HOME/.local/bin

@@ -80,7 +80,7 @@ plugins=(
 	ubuntu
 )
 
-if [ -f ~/.oh-my-zsh.sh ]; then
+if [ -d ~/.oh-my-zsh ]; then
 	source $ZSH/oh-my-zsh.sh
 fi
 
