@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+{{  if eq .chezmoi.osRelease.id "ubuntu" }}
+sudo apt install zsh
+{{  end -}}
+{{  if eq .chezmoi.osRelease.id "debian" }}
+sudo apt install zsh
+{{  end -}}
+{{  if eq .chezmoi.osRelease.id "archlinux" }}
+sudo pacman -S zsh zsh-completions
+{{  end -}}
+{{ end -}}
