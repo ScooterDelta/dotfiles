@@ -1,6 +1,6 @@
 # ScooterDelta's dotfiles
 
-> These dotfiles are managed by [chezmoi](https://www.chezmoi.io/), the `install.sh` script is designed to be called from headed or headless environments and will fetch the `chezmoi` runtime.
+> These `dotfiles` are managed by [chezmoi](https://www.chezmoi.io/), the `install.sh` script is designed to be called from headed or headless environments and will fetch the `chezmoi` runtime.
 
 ## Getting Started
 
