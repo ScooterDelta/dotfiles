@@ -2,15 +2,16 @@
 
 #!/bin/sh
 {{  if eq .chezmoi.osRelease.id "ubuntu" }}
-sudo apt -y install zsh
+sudo apt -y install zsh curl
 {{  end -}}
 {{  if eq .chezmoi.osRelease.id "debian" }}
-sudo apt -y install zsh
+sudo apt -y install zsh curl
 {{  end -}}
 {{  if eq .chezmoi.osRelease.id "archlinux" }}
-sudo pacman -S --noconfirm zsh zsh-completions
+sudo pacman -S --noconfirm zsh zsh-completions curl
 {{  end -}}
 
-sudo chsh -s /usr/bin/zsh
+sudo chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 {{ end -}}
