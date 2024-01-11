@@ -19,6 +19,9 @@
 {{-   $email = promptString "email" $email -}}
 {{- end -}}
 
+{{- /* Check if running in a Remote Dev Container */ -}}
+{{- $dev_container:= env "REMOTE_CONTAINERS" | not | not -}}
+
 {{- if $interactive -}}
 {{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
 {{- end -}}
@@ -28,3 +31,4 @@ sourceDir: "{{ .chezmoi.sourceDir }}"
 data:
   name: "{{ $name }}"
   email: "{{ $email }}"
+  dev_container: "{{ $dev_container }}"
