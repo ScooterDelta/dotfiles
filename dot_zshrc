@@ -80,7 +80,9 @@ plugins=(
 	ubuntu
 )
 
-source $ZSH/oh-my-zsh.sh
+if [ -f ~/.oh-my-zsh.sh ]; then
+	source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
