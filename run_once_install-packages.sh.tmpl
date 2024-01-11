@@ -2,13 +2,13 @@
 
 #!/bin/sh
 {{  if eq .chezmoi.osRelease.id "ubuntu" }}
-sudo apt install zsh
+sudo apt -y install zsh
 {{  end -}}
 {{  if eq .chezmoi.osRelease.id "debian" }}
-sudo apt install zsh
+sudo apt -y install zsh
 {{  end -}}
 {{  if eq .chezmoi.osRelease.id "archlinux" }}
-sudo pacman -S zsh zsh-completions
+sudo pacman -S --noconfirm zsh zsh-completions
 {{  end -}}
 
 sudo chsh -s /usr/bin/zsh
