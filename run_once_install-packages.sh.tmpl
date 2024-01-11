@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm zsh zsh-completions curl
 
 sudo chsh -s $(which zsh)
 
-if [ ! -f ~/.oh-my-zsh.sh ]; then
+if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 {{- end -}}
