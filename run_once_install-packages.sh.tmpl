@@ -15,6 +15,10 @@ sudo chsh -s $(which zsh)
 
 if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    # Oh My Zsh makes a backup, not necessary for this script.
+    rm -rf .zshrc
+    mv .zshrc.pre-oh-my-zsh .zshrc
 fi
 
 {{ end -}}
