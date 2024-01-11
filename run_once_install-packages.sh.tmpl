@@ -1,9 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-# If interactive environment then set up zsh and oh-my-zsh
-{{- if $interactive -}}
-
 {{  if eq .chezmoi.osRelease.id "ubuntu" }}
 sudo apt -y install zsh curl
 {{  end -}}
@@ -19,6 +16,5 @@ sudo chsh -s $(which zsh)
 if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-{{- end -}}
 
 {{ end -}}
