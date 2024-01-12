@@ -1,4 +1,4 @@
-{{- if ne .dev_container "true" }}
+{{- if ne .dev_container "true" -}}
 [user]
 	name = {{ .name | quote }}
 	email = {{ .email | quote }}
@@ -13,7 +13,6 @@
 
 [pull]
 	rebase = false
-
 [fetch]
 	prune = true
 
