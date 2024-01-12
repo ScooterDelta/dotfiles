@@ -74,6 +74,7 @@ plugins=(
 	git
 	docker
 	node
+	npm
 	yarn
 	dotnet
 	archlinux
