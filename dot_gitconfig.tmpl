@@ -9,17 +9,17 @@
   path = ~/git/entelect/.gitconfig
 [includeIf "gitdir:~/git/personal/"]
   path = ~/git/personal/.gitconfig
-{{- end }}
 
 [pull]
 	rebase = false
 [fetch]
 	prune = true
 
-{{- if eq .chezmoi.os "linux" }}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{-   if eq .chezmoi.os "linux" }}
+{{-     if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 	useHttpPath = true
+{{-     end }}
 {{-   end }}
-{{- end }}
+{{- end -}}
