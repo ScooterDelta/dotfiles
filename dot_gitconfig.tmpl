@@ -1,5 +1,4 @@
-{{ if eq .dev_container false }}
-
+{{ if ne .dev_container true }}
 [user]
 	name = {{ .name | quote }}
 	email = {{ .email | quote }}
@@ -10,7 +9,6 @@
   path = ~/git/entelect/.gitconfig
 [includeIf "gitdir:~/git/personal/"]
   path = ~/git/personal/.gitconfig
-
 {{ end }}
 
 [pull]
