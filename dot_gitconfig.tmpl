@@ -3,17 +3,20 @@
 	name = {{ .name | quote }}
 	email = {{ .email | quote }}
 
-[includeIf "gitdir:~/git/client/"]
-  path = ~/git/client/.gitconfig
-[includeIf "gitdir:~/git/entelect/"]
-  path = ~/git/entelect/.gitconfig
-[includeIf "gitdir:~/git/personal/"]
-  path = ~/git/personal/.gitconfig
+[includeIf "gitdir:~/git/"]
+  path = ~/git/.gitconfig
+[includeIf "gitdir:~/source/"]
+  path = ~/source/.gitconfig
 
 [pull]
 	rebase = false
 [fetch]
 	prune = true
+
+{{-   if eq .chezmoi.os "windows" }}
+[core]
+	longpaths = true
+{{- end -}}
 
 {{-   if eq .chezmoi.os "linux" }}
 {{-     if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
