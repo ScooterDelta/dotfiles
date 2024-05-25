@@ -1,5 +1,11 @@
 {
     "cSpell.words": [
         "chezmoi"
-    ]
+    ],
+    "files.associations": {
+        "*.conf.tmpl": "properties",
+        "*.css.tmpl": "css",
+        "*.json*.tmpl": "jsonc",
+        "dunstrc*": "properties",
+    },
 }
