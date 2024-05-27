@@ -9,13 +9,13 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap",
-        "wlr/taskbar"
+        "wlr/taskbar",
+        "custom/media"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "custom/media",
         "mpd",
         "idle_inhibitor",
         "pulseaudio",
