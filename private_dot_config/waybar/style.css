@@ -18,17 +18,38 @@
 /* -----------------------------------------------------
  * Colours 
  * ----------------------------------------------------- */
-@import '../../.cache/wal/colors-waybar.css';
+/* @import '../../.cache/wal/colors-waybar.css'; */
+
+@define-color foreground #c5c5c5;
+@define-color background #1c1c1c;
+@define-color cursor #ff00a0;
+
+@define-color color0 #1c1c1c;
+@define-color color1 #ff005b;
+@define-color color2 #cee318;
+@define-color color3 #ffe755;
+@define-color color4 #048ac7;
+@define-color color5 #833c9f;
+@define-color color6 #0ac1cd;
+@define-color color7 #e5e5e5;
+@define-color color8 #666666;
+@define-color color9 #ff005b;
+@define-color color10 #cee318;
+@define-color color11 #ffe755;
+@define-color color12 #048ac7;
+@define-color color13 #833c9f;
+@define-color color14 #0ac1cd;
+@define-color color15 #e5e5e5;
 
 /* -----------------------------------------------------
  * Theme 
  * ----------------------------------------------------- */
 
 @define-color backgroundlight @color5;
-@define-color backgrounddark @color11;
+@define-color backgrounddark @color9;
 @define-color workspacesbackground1 @color5;
-@define-color workspacesbackground2 @color11;
-@define-color bordercolor @color11;
+@define-color workspacesbackground2 @color9;
+@define-color bordercolor @color9;
 @define-color textcolor1 #FFFFFF;
 @define-color textcolor2 #FFFFFF;
 @define-color textcolor3 #FFFFFF;
