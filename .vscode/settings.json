@@ -7,5 +7,6 @@
         "*.css.tmpl": "css",
         "*.json*.tmpl": "jsonc",
         "dunstrc*": "properties",
+        "*.rasi": "css"
     },
 }
