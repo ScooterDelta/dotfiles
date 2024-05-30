@@ -32,6 +32,21 @@ Then initialize `chezmoi` using `chezmoi init --apply ScooterDelta`
 
 The primary font I use is the [JetBrains Mono Nerd Font](https://www.nerdfonts.com) which has been patched to support [Nerd Font](https://www.nerdfonts.com) ligatures and special characters.
 
+### Hyprland
+
+These dotfiles contain my [Hyprland](https://hyprland.org/), which if you want to run the Hyprland configuration the following libraries are required (**Note** - this is for ArchLinux, and is possibly not comprehensive as I tend to side install this with KDE):
+
+```bash
+yay -S hyprland kitty waybar wofi dolphin xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 xdg-desktop-portal-hyprland cliphist thunar tumbler catfish thunar-volman thunar-archive-plugin thunar-media-tags-plugin rofi-wayland hyprpaper hypridle hyprlock mpd nwg-look network-manager-applet udiskie qt6ct grim slurp blueman swaync dolphin python-pywal hyprwayland-scanner libliftoff cmake cpio meson rofi-emoji-git
+```
+
+Shout out to some repositories that I "borrowed" configuration and styles from:
+
+- [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
+- [stephan-raabe/dotfiles](https://gitlab.com/stephan-raabe/dotfiles)
+- [zDyanTB/HyprNova](https://github.com/zDyanTB/HyprNova)
+- [newmanls/rofi-themes-collection](https://github.com/newmanls/rofi-themes-collection)
+
 ## License
 
 MIT
