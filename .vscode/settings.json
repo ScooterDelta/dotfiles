@@ -9,4 +9,9 @@
         "dunstrc*": "properties",
         "*.rasi": "css"
     },
+    "[css]": {
+        "editor.suggest.insertMode": "replace",
+        "cSpell.fixSpellingWithRenameProvider": false,
+        "editor.defaultFormatter": "vscode.css-language-features",
+    }
 }
