@@ -34,6 +34,8 @@ The primary font I use is the [JetBrains Mono Nerd Font](https://www.nerdfonts.c
 
 ### Hyprland
 
+![Hyprland Setup](./assets/hyprland-setup.png)
+
 These dotfiles contain my [Hyprland](https://hyprland.org/), which if you want to run the Hyprland configuration the following libraries are required (**Note** - this is for ArchLinux, and is possibly not comprehensive as I tend to side install this with KDE):
 
 ```bash

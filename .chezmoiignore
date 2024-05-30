@@ -1,5 +1,6 @@
 .github/
 .vscode/
+assets/
 install.sh
 LICENSE
 README.md
