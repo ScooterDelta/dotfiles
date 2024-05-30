@@ -16,7 +16,9 @@
         "hyprland/workspaces",
         "custom/separator#blank_2",
         "custom/media",
-        "custom/separator#blank_2"
+        "custom/separator#blank_2",
+        "wlr/taskbar",
+        "hyprland/submap"
     ],
     "modules-center": [
         "hyprland/window"
@@ -33,31 +35,4 @@
         "tray",
         "clock"
     ]
-    // Choose the order of the modules
-    // "modules-left": [
-    //     "hyprland/workspaces",
-    //     "hyprland/submap",
-    //     "wlr/taskbar",
-    //     "custom/media"
-    // ],
-    // "modules-center": [
-    //     "hyprland/window"
-    // ],
-    // "modules-right": [
-    //     "mpd",
-    //     "idle_inhibitor",
-    //     "pulseaudio",
-    //     "network",
-    //     "power-profiles-daemon",
-    //     "cpu",
-    //     "memory",
-    //     "temperature",
-    //     "backlight",
-    //     "keyboard-state",
-    //     "hyprland/language",
-    //     "battery",
-    //     "battery#bat2",
-    //     "clock",
-    //     "tray"
-    // ],
 }
