@@ -1,4 +1,12 @@
-@import '../../.cache/wal/colors-waybar.css';
+/*
+ * Sourced from Sway Notification Center Themes
+ * from [zDyanTB/HyprNova](https://github.com/zDyanTB/HyprNova).
+ */
 
-@import 'themes/nova-dark/notifications.css';
-@import 'themes/nova-dark/central_control.css';
+/* @import '../../.cache/wal/colors-waybar.css'; */
+/* Background colours sourced from `wal/colors-waybar.css` using theme `sexy-mikazuki` */
+
+@import '../colors/waybar.css';
+
+@import 'notifications.css';
+@import 'central_control.css';

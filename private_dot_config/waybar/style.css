@@ -9,7 +9,14 @@
  * ----------------------------------------------------- 
 */
 
-@import '../../.cache/wal/colors-waybar.css';
+/*
+ * Sourced from `[Transparent] Crystal Clear` and `[Pywal] Simple` 
+ * from [zDyanTB/HyprNova](https://github.com/zDyanTB/HyprNova).
+ */
+
+/* @import '../../.cache/wal/colors-waybar.css'; */
+/* Background colours sourced from `wal/colors-waybar.css` using theme `sexy-mikazuki` */
+@import '../colors/waybar.css';
 
 * {
     font-family: "JetBrains Mono Nerd Font";
@@ -52,8 +59,8 @@ tooltip {
 
 /*-----module groups----*/
 .modules-right {
-    background-color: @color0;
-    border: 0.5px solid @color15;
+    background-color: @waybar-background;
+    border: 0.5px solid @waybar-border;
     border-radius: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
@@ -62,8 +69,8 @@ tooltip {
 }
 
 .modules-center {
-    background-color: @color0;
-    border: 0.5px solid @color15;
+    background-color: @waybar-background;
+    border: 0.5px solid @waybar-border;
     border-radius: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
@@ -72,8 +79,8 @@ tooltip {
 }
 
 .modules-left {
-    background-color: @color0;
-    border: 0.5px solid @color15;
+    background-color: @waybar-background;
+    border: 0.5px solid @waybar-border;
     border-radius: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
