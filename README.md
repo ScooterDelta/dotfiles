@@ -39,7 +39,7 @@ The primary font I use is the [JetBrains Mono Nerd Font](https://www.nerdfonts.c
 These dotfiles contain my [Hyprland](https://hyprland.org/), which if you want to run the Hyprland configuration the following libraries are required (**Note** - this is for ArchLinux, and is possibly not comprehensive as I tend to side install this with KDE):
 
 ```bash
-yay -S hyprland kitty waybar wofi dolphin xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 xdg-desktop-portal-hyprland cliphist thunar tumbler catfish thunar-volman thunar-archive-plugin thunar-media-tags-plugin rofi-wayland hyprpaper hypridle hyprlock mpd nwg-look network-manager-applet udiskie qt6ct grim slurp blueman swaync dolphin python-pywal hyprwayland-scanner libliftoff cmake cpio meson rofi-emoji-git
+yay -S hyprland kitty waybar wofi dolphin xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 xdg-desktop-portal-hyprland cliphist thunar tumbler catfish thunar-volman thunar-archive-plugin thunar-media-tags-plugin rofi-wayland hyprpaper hypridle hyprlock mpd nwg-look network-manager-applet udiskie qt6ct grim slurp blueman swaync dolphin python-pywal hyprwayland-scanner libliftoff cmake cpio meson rofi-emoji-git brightnessctl
 ```
 
 Shout out to some repositories that I "borrowed" configuration and styles from:
