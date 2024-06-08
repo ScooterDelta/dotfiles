@@ -2,14 +2,14 @@
 
 /* @import '../../.cache/wal/colors-waybar.css'; */
 /* Background colours sourced from `wal/colors-waybar.css` using theme `sexy-mikazuki` */
-@define-color waybar-background #4c0768;
+@define-color waybar-background #08171d;
 @define-color waybar-border #e9e9e9;
 
 @define-color foreground #ffffff;
 @define-color background #000000;
-@define-color background-alt alpha(#4c0768, .8);
+@define-color background-alt alpha(#08171d, .8);
 @define-color text #ffffff;
-@define-color selected #4c0768;
+@define-color selected #08171d;
 @define-color hover alpha(@selected, .8);
 
 /* @define-color color0 #2a1d17;
