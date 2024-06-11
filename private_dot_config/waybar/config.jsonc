@@ -17,7 +17,6 @@
         "custom/separator#blank_2",
         "custom/media",
         "custom/separator#blank_2",
-        "wlr/taskbar",
         "hyprland/submap"
     ],
     "modules-center": [
