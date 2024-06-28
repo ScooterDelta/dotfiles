@@ -21,4 +21,8 @@ if [ ! -d ~/.oh-my-zsh ]; then
     mv .zshrc.pre-oh-my-zsh .zshrc
 fi
 
+if [ ! -d ~/.oh-my-bash ]; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+fi
+
 {{ end -}}
