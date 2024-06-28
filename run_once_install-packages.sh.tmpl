@@ -23,6 +23,10 @@ fi
 
 if [ ! -d ~/.oh-my-bash ]; then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+    # Need to restore bashrc file from chezmoi
+    # rm -rf .bashrc
+    # mv .bashrc.... .bashrc
 fi
 
 {{ end -}}
