@@ -2,5 +2,14 @@
 
 root = true
 
+[*]
 indent_style = space
 indent_size = 4
+
+# Linux style Line Endings
+[*.{sh,bash,zsh,ksh,fish,py}]
+end_of_line = lf
+
+# Windows style Line Endings
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
