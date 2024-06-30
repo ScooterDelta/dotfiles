@@ -7,7 +7,7 @@ sudo apt -y install zsh curl git
 {{  if eq .chezmoi.osRelease.id "debian" }}
 sudo apt -y install zsh curl git
 {{  end -}}
-{{  if eq .chezmoi.osRelease.id "archlinux" }}
+{{- if eq .chezmoi.osRelease.id "arch" }}
 sudo pacman -S --noconfirm zsh zsh-completions curl git
 {{  end -}}
 

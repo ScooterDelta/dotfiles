@@ -24,7 +24,7 @@
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 	useHttpPath = true
 {{-     end }}
-{{      if eq .chezmoi.osRelease.id "archlinux" }}
+{{-     if eq .chezmoi.osRelease.id "arch" }}
 [credential]
     credentialStore = secretservice
 {{-     end }}
