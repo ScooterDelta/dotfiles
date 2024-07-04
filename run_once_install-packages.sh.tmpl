@@ -8,7 +8,7 @@ sudo apt -y install zsh curl git
 sudo apt -y install zsh curl git
 {{  end -}}
 {{- if eq .chezmoi.osRelease.id "arch" }}
-sudo pacman -S --noconfirm zsh zsh-completions curl git
+sudo pacman -S --noconfirm zsh zsh-completions curl git zsh-syntax-highlighting zsh-autosuggestions
 {{  end -}}
 
 sudo chsh -s $(which zsh)
