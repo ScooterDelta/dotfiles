@@ -8,7 +8,7 @@ sudo apt -y install zsh curl git
 sudo apt -y install zsh curl git
 {{  end -}}
 {{- if eq .chezmoi.osRelease.id "arch" }}
-sudo pacman -S --noconfirm zsh zsh-completions curl git zsh-syntax-highlighting zsh-autosuggestions
+sudo pacman -S --noconfirm zsh zsh-completions curl git
 {{  end -}}
 
 sudo chsh -s $(which zsh)
@@ -19,6 +19,10 @@ if [ ! -d ~/.oh-my-zsh ]; then
     # Oh My Zsh makes a backup, not necessary for this script.
     rm -rf .zshrc .shell.pre-oh-my-zsh
     mv .zshrc.pre-oh-my-zsh .zshrc
+
+    # Enable zsh autosuggestions and completions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
 if [ ! -d ~/.oh-my-bash ]; then
