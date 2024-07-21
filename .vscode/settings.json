@@ -5,6 +5,7 @@
     "files.associations": {
         "*.conf.tmpl": "properties",
         "*.css.tmpl": "css",
+        "*.sh.tmpl": "shellscript",
         "*.json*.tmpl": "jsonc",
         "dunstrc*": "properties",
         "*.rasi": "css"
