@@ -79,6 +79,7 @@ plugins=(
 	node
 	npm
 	yarn
+	poetry
 	dotnet
 	archlinux
 	ubuntu
