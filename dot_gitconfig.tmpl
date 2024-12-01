@@ -13,6 +13,9 @@
 [fetch]
 	prune = true
 
+[credential "https://dev.azure.com"]
+    useHttpPath = true
+
 {{-   if eq .chezmoi.os "windows" }}
 [core]
 	longpaths = true
@@ -30,7 +33,4 @@
     helper = /usr/bin/git-credential-manager
 {{-     end }}
 {{-   end }}
-{{- end }}
-
-[credential "https://dev.azure.com"]
-    useHttpPath = true
+{{- end -}}
