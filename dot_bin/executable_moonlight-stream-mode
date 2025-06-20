@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# KDE is running if `XDG_SESSION_DESKTOP=KDE`,
+# Hyprland is running if `XDG_SESSION_DESKTOP=Hyprland`
+if [ "$XDG_SESSION_DESKTOP" != "KDE" ]; then
+  echo "kscreen-doctor is only available when running under KDE."
+  exit 1
+fi
+
+### ---- Monitor Adapter Configuration ---- ###
+PRIMARY_MONITOR="DP-2"
+SECONDARY_MONITOR="DP-3"
+STREAMING_MONITOR="HDMI-A-1"
+
+### ---- Monitor Mode Configuration ---- ###
+STREAMING_MONITOR_MODE="3840x2160@60"
+
+# Function to handle --stream parameter
+handle_stream() {
+  kscreen-doctor output.${STREAMING_MONITOR}.enable output.${STREAMING_MONITOR}.mode.${STREAMING_MONITOR_MODE} output.${PRIMARY_MONITOR}.disable output.${SECONDARY_MONITOR}.disable
+}
+
+# Function to handle --restore parameter
+handle_restore() {
+  kscreen-doctor output.${STREAMING_MONITOR}.disable output.${PRIMARY_MONITOR}.enable output.${PRIMARY_MONITOR}.primary output.${SECONDARY_MONITOR}.enable
+}
+
+# Function to handle --help parameter
+handle_help() {
+  echo "Usage: [--stream <mode>] [--restore] [--help]"
+  exit 0
+}
+
+# Main script logic
+if [ "$1" == "--stream" ]; then
+  if [ -n "$2" ]; then
+    STREAMING_MONITOR_MODE="$2"
+    handle_stream
+  else
+    echo "Error: --stream requires a mode parameter."
+    exit 1
+  fi
+elif [ "$1" == "--restore" ]; then
+  handle_restore
+elif [ "$1" == "--help" ]; then
+  handle_help
+else
+  echo "Usage: [--stream <mode>] [--restore] [--help]"
+  exit 1
+fi
