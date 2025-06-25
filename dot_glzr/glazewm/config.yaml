@@ -130,6 +130,8 @@ workspaces:
   - name: '8'
   - name: '9'
   - name: '0'
+  - name: '-'
+  - name: '='
 
 window_rules:
   - commands: ['ignore']
@@ -300,6 +302,10 @@ keybindings:
     bindings: ['alt+9']
   - commands: ['focus --workspace 0']
     bindings: ['alt+0']
+  - commands: ['focus --workspace -']
+    bindings: ['alt+-']
+  - commands: ['focus --workspace =']
+    bindings: ['alt+=']
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
@@ -333,3 +339,7 @@ keybindings:
     bindings: ['alt+shift+9']
   - commands: ['move --workspace 0', 'focus --workspace 0']
     bindings: ['alt+shift+0']
+  - commands: ['move --workspace -', 'focus --workspace -']
+    bindings: ['alt+shift+-']
+  - commands: ['move --workspace =', 'focus --workspace =']
+    bindings: ['alt+shift+=']
