@@ -191,6 +191,16 @@ binding_modes:
         bindings: ['escape', 'enter']
 
 keybindings:
+  # Shift focus in a given direction.
+  - commands: ['focus --direction left']
+    bindings: ['alt+h', 'alt+left']
+  - commands: ['focus --direction right']
+    bindings: ['alt+l', 'alt+right']
+  - commands: ['focus --direction up']
+    bindings: ['alt+k', 'alt+up']
+  - commands: ['focus --direction down']
+    bindings: ['alt+j', 'alt+down']
+
   # Resize focused window by a percentage or pixel amount.
   - commands: ['resize --width -2%']
     bindings: ['alt+u']
