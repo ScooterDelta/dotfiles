@@ -277,10 +277,6 @@ keybindings:
   - commands: ['focus --prev-active-workspace']
     bindings: ['alt+a']
 
-  # Focus the workspace that last had focus.
-  - commands: ['focus --recent-workspace']
-    bindings: ['alt+d']
-
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ['focus --workspace 1']
     bindings: ['alt+1']
