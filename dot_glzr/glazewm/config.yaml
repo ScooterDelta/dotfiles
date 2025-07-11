@@ -159,16 +159,14 @@ window_rules:
 
   - commands: ['move --workspace 4']
     match:
-      - window_process: { equals: "steamwebhelper"}
-        window_class: { regex: 'Steam' }
+      - window_class: { regex: 'Steam.+' }
 
   - commands: ['move --workspace 5']
     match:
       - window_process: { equals: "Slack"}
       - window_process: { equals: "ms-teams"}
       - window_process: { equals: "Discord"}
-      - window_process: { equals: "steamwebhelper"}
-        window_class: { regex: 'Friends List' }
+      - window_class: { regex: 'Friends List.+' }
 
   - commands: ['move --workspace 6']
     match:
