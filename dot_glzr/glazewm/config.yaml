@@ -316,6 +316,10 @@ keybindings:
       bindings: ["alt+z"]
     - commands: ["move-workspace --direction right"]
       bindings: ["alt+x"]
+    - commands: ["move-workspace --direction down"]
+      bindings: ["alt+shift+z"]
+    - commands: ["move-workspace --direction up"]
+      bindings: ["alt+shift+x"]
 
     # Move focused window to a workspace defined in `workspaces` config.
     - commands: ["move --workspace 1", "focus --workspace 1"]
