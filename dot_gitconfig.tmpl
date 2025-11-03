@@ -21,6 +21,12 @@
 	longpaths = true
 {{- end -}}
 
+{{-   if eq .chezmoi.os "darwin" }}
+[credential]
+    helper = 
+    helper = /usr/local/share/gcm-core/git-credential-manager
+{{- end -}}
+
 {{-   if eq .chezmoi.os "linux" }}
 {{-     if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [credential]
