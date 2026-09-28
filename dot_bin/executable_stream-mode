@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # stream-mode — LNXlink helper for the "Display Mode" select entity.
 #
-#   stream-mode state          -> prints: normal | stream_4k | stream_1600p | mixed
+#   stream-mode state          -> prints: normal | stream_4k | stream_1600p | stream_1440p | mixed
 #   stream-mode set <option>   -> switches to that mode via moonlight-stream-mode
 #
 # Requires: kscreen-doctor, jq. Must run inside the graphical session
@@ -47,6 +47,7 @@ state() {
     case "$(resolution "$STREAM_OUT")" in
       3840x2160) echo "stream_4k";    return ;;
       2560x1600) echo "stream_1600p"; return ;;
+      2560x1440) echo "stream_1440p"; return ;;
     esac
   fi
 
@@ -58,6 +59,7 @@ set_mode() {
     normal)       exec "$MOONLIGHT" --restore ;;
     stream_4k)    exec "$MOONLIGHT" --stream 3840x2160@60 ;;
     stream_1600p) exec "$MOONLIGHT" --stream 2560x1600@60 ;;
+    stream_1440p) exec "$MOONLIGHT" --stream 2560x1440@120 ;;
     *) echo "unknown mode: ${1:-<none>}" >&2; exit 2 ;;
   esac
 }
@@ -65,5 +67,5 @@ set_mode() {
 case "${1:-}" in
   state) state ;;
   set)   set_mode "${2:-}" ;;
-  *)     echo "usage: $0 state | set <normal|stream_4k|stream_1600p>" >&2; exit 2 ;;
+  *)     echo "usage: $0 state | set <normal|stream_4k|stream_1600p|stream_1440p>" >&2; exit 2 ;;
 esac
