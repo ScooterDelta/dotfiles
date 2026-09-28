@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# stream-mode — LNXlink helper for the "Display Mode" select entity.
+#
+#   stream-mode state          -> prints: normal | stream_4k | stream_1600p | mixed
+#   stream-mode set <option>   -> switches to that mode via moonlight-stream-mode
+#
+# Requires: kscreen-doctor, jq. Must run inside the graphical session
+# (WAYLAND_DISPLAY + session D-Bus), which the LNXlink user service provides.
+
+set -euo pipefail
+
+MOONLIGHT="$HOME/.bin/moonlight-stream-mode"
+PRIMARY=(DP-2 DP-3)
+STREAM_OUT="HDMI-A-1"
+
+json=""
+
+enabled() {
+  jq -r --arg n "$1" '.outputs[] | select(.name == $n) | .enabled' <<<"$json"
+}
+
+resolution() {
+  jq -r --arg n "$1" '
+    .outputs[] | select(.name == $n)
+    | .currentModeId as $m
+    | .modes[] | select(.id == $m)
+    | "\(.size.width)x\(.size.height)"' <<<"$json"
+}
+
+all_primaries() {
+  # $1 = "true" or "false"; succeeds if every primary output matches
+  local out
+  for out in "${PRIMARY[@]}"; do
+    [[ "$(enabled "$out")" == "$1" ]] || return 1
+  done
+}
+
+state() {
+  json="$(kscreen-doctor -j)"
+
+  if all_primaries true && [[ "$(enabled "$STREAM_OUT")" == "false" ]]; then
+    echo "normal"
+    return
+  fi
+
+  if all_primaries false && [[ "$(enabled "$STREAM_OUT")" == "true" ]]; then
+    case "$(resolution "$STREAM_OUT")" in
+      3840x2160) echo "stream_4k";    return ;;
+      2560x1600) echo "stream_1600p"; return ;;
+    esac
+  fi
+
+  echo "mixed"
+}
+
+set_mode() {
+  case "${1:-}" in
+    normal)       exec "$MOONLIGHT" --restore ;;
+    stream_4k)    exec "$MOONLIGHT" --stream 3840x2160@60 ;;
+    stream_1600p) exec "$MOONLIGHT" --stream 2560x1600@60 ;;
+    *) echo "unknown mode: ${1:-<none>}" >&2; exit 2 ;;
+  esac
+}
+
+case "${1:-}" in
+  state) state ;;
+  set)   set_mode "${2:-}" ;;
+  *)     echo "usage: $0 state | set <normal|stream_4k|stream_1600p>" >&2; exit 2 ;;
+esac
