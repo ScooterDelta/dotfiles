@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# steam-bigpicture — LNXlink helper for a "Steam Big Picture" switch.
+#
+#   steam-bigpicture on     -> launch Steam via steam-2.desktop (-pipewire -tenfoot),
+#                              or switch a running Steam into Big Picture
+#   steam-bigpicture off    -> gracefully shut Steam down
+#   steam-bigpicture state  -> prints ON (exit 0) if Steam is running, nothing (exit 1) if not
+#
+# Launching through kstart uses KDE's normal app launcher, so Steam gets its own
+# app-*.scope instead of living inside lnxlink.service (restarting LNXlink won't kill it).
+
+set -euo pipefail
+
+DESKTOP_ID="steam-2"   # ~/.local/share/applications/steam-2.desktop
+
+running() {
+  pgrep -u "$USER" -x steam >/dev/null
+}
+
+case "${1:-}" in
+  on)
+    if running; then
+      # Already up: ask the running instance to open Big Picture.
+      steam steam://open/bigpicture >/dev/null 2>&1 &
+      disown
+    else
+      kstart --application "$DESKTOP_ID" >/dev/null 2>&1
+    fi
+    ;;
+
+  off)
+    if running; then
+      steam -shutdown >/dev/null 2>&1 || true
+    fi
+    ;;
+
+  state)
+    if running; then
+      echo "ON"
+    else
+      exit 1
+    fi
+    ;;
+
+  *)
+    echo "usage: $0 on | off | state" >&2
+    exit 2
+    ;;
+esac
