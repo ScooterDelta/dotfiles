@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# sleep-block — LNXlink helper for blocking sleep through KDE's power manager.
+#
+#   sleep-block on      -> start a KDE power inhibition (shows in Plasma's power applet)
+#   sleep-block off     -> release it
+#   sleep-block state   -> prints ON (exit 0) if *this* block is active, nothing (exit 1) if not
+#   sleep-block any     -> prints ON (exit 0) if *anything* is blocking sleep, nothing (exit 1) if not
+#
+# The inhibition only lasts while a process holds it, so it runs as a transient
+# systemd user unit. Requires kde-inhibit (kde-cli-tools) and busctl.
+
+set -euo pipefail
+
+UNIT="ha-sleep-block"
+
+# Drop --screenSaver if you only want to block sleep but still allow screen locking.
+INHIBIT_FLAGS=(--power --screenSaver)
+
+case "${1:-}" in
+  on)
+    if ! systemctl --user is-active --quiet "$UNIT"; then
+      systemd-run --user --unit="$UNIT" --collect \
+        --description="Sleep blocked from Home Assistant" \
+        kde-inhibit "${INHIBIT_FLAGS[@]}" sleep infinity >/dev/null
+    fi
+    ;;
+
+  off)
+    systemctl --user stop "$UNIT" 2>/dev/null || true
+    ;;
+
+  state)
+    if systemctl --user is-active --quiet "$UNIT"; then
+      echo "ON"
+    else
+      exit 1
+    fi
+    ;;
+
+  any)
+    reply="$(busctl --user call \
+      org.freedesktop.PowerManagement.Inhibit \
+      /org/freedesktop/PowerManagement/Inhibit \
+      org.freedesktop.PowerManagement.Inhibit HasInhibit)"
+    if [[ "$reply" == "b true" ]]; then
+      echo "ON"
+    else
+      exit 1
+    fi
+    ;;
+
+  *)
+    echo "usage: $0 on | off | state | any" >&2
+    exit 2
+    ;;
+esac
